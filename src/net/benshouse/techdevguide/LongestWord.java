@@ -16,29 +16,21 @@ public class LongestWord {
      * @return Longest word found
      */
     public static String find(String input, List<String> dictionary){
-        //Populate initial scores - O(d)
         HashMap<String, Integer> scores = new HashMap<>();
-        for (String s : dictionary){
-            scores.put(s, 0);
-        }
+        String currentWinner = "";
 
-        //Calculate scores O(n) * O(d)
+        //Calculate scores O(n * d)
         for (int i = 0; i < input.length(); i++){
             Character currentChar = input.charAt(i);
-            for (String word : scores.keySet()){
-                Integer currentScore = scores.get(word);
+            for (String word : dictionary){
+                Integer currentScore = scores.keySet().contains(word) ? scores.get(word) : 0;
                 if (word.length() > currentScore && word.charAt(currentScore) == currentChar){
-                    scores.replace(word, ++currentScore);
+                    scores.put(word, ++currentScore);
                 }
-            }
-        }
 
-        //Find winner O(d)
-        String currentWinner = "";
-        for (String word : scores.keySet()){
-            Integer finalScore = scores.get(word);
-            if (word.length() == finalScore && word.length() > currentWinner.length()){
-                currentWinner = word;
+                if (word.length() == currentScore && word.length() > currentWinner.length()){
+                    currentWinner = word;
+                }
             }
         }
 
