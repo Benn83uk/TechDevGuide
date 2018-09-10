@@ -12,17 +12,17 @@ public class LongestWord {
     /**
      * Find the longest word from the dictionary which appears in order in the input.
      * @param input String to search
-     * @param dictionary Words to find in the given string
+     * @param words Words to find in the given string
      * @return Longest word found
      */
-    public static String find(String input, List<String> dictionary){
+    public static String find(String input, List<String> words){
         HashMap<String, Integer> scores = new HashMap<>();
         String currentWinner = "";
 
-        //Calculate scores O(n * d)
+        //Calculate scores O(N * W)
         for (int i = 0; i < input.length(); i++){
             Character currentChar = input.charAt(i);
-            for (String word : dictionary){
+            for (String word : words){
                 Integer currentScore = scores.keySet().contains(word) ? scores.get(word) : 0;
                 if (word.length() > currentScore && word.charAt(currentScore) == currentChar){
                     scores.put(word, ++currentScore);
