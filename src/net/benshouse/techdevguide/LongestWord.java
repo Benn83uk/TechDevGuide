@@ -26,10 +26,9 @@ public class LongestWord {
                 Integer currentScore = scores.keySet().contains(word) ? scores.get(word) : 0;
                 if (word.length() > currentScore && word.charAt(currentScore) == currentChar){
                     scores.put(word, ++currentScore);
-                }
-
-                if (word.length() == currentScore && word.length() > currentWinner.length()){
-                    currentWinner = word;
+                    if (word.length() == currentScore && word.length() > currentWinner.length()){
+                        currentWinner = word;
+                    }
                 }
             }
         }
