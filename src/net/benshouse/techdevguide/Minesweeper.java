@@ -3,6 +3,11 @@ package net.benshouse.techdevguide;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * Challenge from https://techdevguide.withgoogle.com/paths/foundational/coding-question-minesweeper/#!
+ * @author Ben Noble
+ * @since 2018-09-11
+ */
 public class Minesweeper {
     private Random random;
     private boolean[][] cells;
@@ -49,6 +54,10 @@ public class Minesweeper {
      * @return
      */
     public int[][] getMap(){
+        /*NOTE: There's a slight advantage to using int[] instead of Integer[]
+         *      because items in an int[] are initialised to 0 by default
+         *      (instead of null in an Integer[])
+         */
         int [][] map = new int[this.cells.length][this.cells[0].length];
         for (int x = 0; x < map.length; x++){
             for (int y = 0; y < map[x].length; y++){
