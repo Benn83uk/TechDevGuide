@@ -1,3 +1,5 @@
+package test.net.benshouse.techdevguide;
+
 import net.benshouse.techdevguide.WaterVolume;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

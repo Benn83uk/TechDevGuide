@@ -1,3 +1,5 @@
+package test.net.benshouse.techdevguide;
+
 import net.benshouse.techdevguide.LongestWord;
 import org.junit.jupiter.api.Test;
 
